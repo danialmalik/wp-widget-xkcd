@@ -33,14 +33,16 @@ class Xkcd_widget extends WP_Widget {
 		}
 
         // get image url
-        $url = 'https://xkcd.com/info.0.json';
-        $response = wp_remote_get($url);
+        // $url = 'https://xkcd.com/info.0.json';
+		$randomImgUrl = 'http://xkcd-imgs.herokuapp.com/';
+        $response = wp_remote_get($randomImgUrl);
         $body = wp_remote_retrieve_body($response);
         $data = json_decode($body, true);
 
         ?>
         <div class='xkcd-container'>
-            <img class='xkcd-comic' src=<?php echo $data['img'] ?>>
+			<span><?php echo $data['title']?></span>
+            <img class='xkcd-comic' src=<?php echo $data['url'] ?>>
         </div>
         <?php
 		echo $args['after_widget']; // Display after widget </div> etc.
