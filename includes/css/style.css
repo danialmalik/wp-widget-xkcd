@@ -1,0 +1,10 @@
+.xkcd-container {
+    overflow-y: auto;
+    height: auto;
+    max-height: 400px;
+}
+
+.xkcd-comic {
+    height: auto;
+    width:400px;
+}
